@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+boto3
+redis
+pinecone-client
+python-dotenv
+pydantic
+PyPDF2
+tiktoken
+openai
+requests
