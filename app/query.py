@@ -1,7 +1,7 @@
 # pip install "pinecone[grpc]"
 from pinecone.grpc import PineconeGRPC as Pinecone
 
-pc = Pinecone(api_key="pcsk_5zQ4gn_R7bfZA5pMuiL9Bk2aXfMYMZdMXDjA5JMvZq9ps4vbwQkVP32YvWjYua8SqMpHMR")
+
 
 # To get the unique host for an index, 
 # see https://docs.pinecone.io/guides/manage-data/target-an-index
@@ -11,7 +11,7 @@ from google.genai import types
 import numpy as np
 import os
 
-GEMINI_API_KEY = "AIzaSyDY0tmp30vdKnsRRQo5Zd1s5dOsXC6IP_Q"
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 PINECONE_ENV = os.getenv("PINECONE_ENVIRONMENT", None)
 PINECONE_INDEX = os.getenv("PINECONE_INDEX", "support-index")
@@ -24,9 +24,10 @@ EMBED_MODEL = "gemini-embedding-001"
 from google import genai
 
 print(GEMINI_API_KEY)
+pc = Pinecone(api_key="")
 client = genai.Client(api_key=GEMINI_API_KEY)
-pc=Pinecone(api_key="pcsk_5zQ4gn_R7bfZA5pMuiL9Bk2aXfMYMZdMXDjA5JMvZq9ps4vbwQkVP32YvWjYua8SqMpHMR", environment=PINECONE_ENV)
-index = pc.Index(host="https://demo-c6y0d3v.svc.aped-4627-b74a.pinecone.io")
+pc=Pinecone(api_key=PINECONE_API_KEY, environment=PINECONE_ENV)
+index = pc.Index(host="")
 
 
 res=[np.array(e.values) for e in client.models.embed_content(
