@@ -10,10 +10,12 @@ import os
 load_dotenv()
 # Load API key from environment variable
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
+PINECONE_HOST =os.getenv("PINECONE_HOST")
 
 client = genai.Client(api_key=GEMINI_API_KEY)
-pc=Pinecone(api_key="XXXXXXXX")
-index = pc.Index(host="https://demo-c6y0d3v.svc.aped-4627-b74a.pinecone.io")
+pc=Pinecone(api_key=PINECONE_API_KEY)
+index = pc.Index(host=PINECONE_HOST)
 def embed(text: str):
     
     res=[np.array(e.values) for e in client.models.embed_content(
