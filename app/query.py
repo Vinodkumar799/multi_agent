@@ -24,7 +24,7 @@ EMBED_MODEL = "gemini-embedding-001"
 from google import genai
 
 print(GEMINI_API_KEY)
-pc = Pinecone(api_key="")
+pc = Pinecone(api_key=PINECONE_API_KEY)
 client = genai.Client(api_key=GEMINI_API_KEY)
 pc=Pinecone(api_key=PINECONE_API_KEY, environment=PINECONE_ENV)
 index = pc.Index(host="")
