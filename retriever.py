@@ -12,7 +12,7 @@ load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 client = genai.Client(api_key=GEMINI_API_KEY)
-pc=Pinecone(api_key="pcsk_5zQ4gn_R7bfZA5pMuiL9Bk2aXfMYMZdMXDjA5JMvZq9ps4vbwQkVP32YvWjYua8SqMpHMR")
+pc=Pinecone(api_key="XXXXXXXX")
 index = pc.Index(host="https://demo-c6y0d3v.svc.aped-4627-b74a.pinecone.io")
 def embed(text: str):
     
